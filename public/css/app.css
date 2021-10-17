@@ -114,6 +114,14 @@ span.collapsing{
 .discount{
 	color: red;
 }
+.kanker-container{
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+}
+.products-container{
+    margin-top: 2em;
+}
 
 @media (max-width: 576px) {
 	h1{
