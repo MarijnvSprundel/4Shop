@@ -17,7 +17,7 @@
         </tr>
         @foreach($categories as $category)
             <tr>
-                <td>{{ $category->name }}</td>
+                <td><a href="/admin/products/{{$category->id}}">{{ $category->name }}</a></td>
                 <td>
                     @if($category->active)
                         <span class="badge badge-success">Zichtbaar</span>

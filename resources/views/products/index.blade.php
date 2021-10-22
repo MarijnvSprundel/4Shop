@@ -3,6 +3,14 @@
 @section('content')
 
 	<div class="products">
+        <div class="dropdown">
+            <p>Categories</p>
+            <div class="dropdown-content">
+                @foreach($categories as $category)
+                    <a href="/categories/{{$category->id}}/">{{$category->name}}</a>
+                @endforeach
+            </div>
+        </div>
 		@foreach($products as $product)
 			<a class="product-row no-link" href="{{ route('products.show', $product) }}">
 				<img src="{{ url($product->image ?? 'img/placeholder.jpg') }}" alt="{{ $product->title }}" class="rounded">

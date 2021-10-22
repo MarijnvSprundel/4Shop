@@ -28,6 +28,8 @@ Route::get('/ideal/pay/{order}', 'IdealController@redirect')->name('ideal.pay');
 Route::get('/ideal/finish/{order}', 'IdealController@finish')->name('ideal.finish');
 Route::get('/ideal/webhook/{order}', 'IdealController@webhook');
 
+Route::get('/categories/{category}', 'ProductController@category')->name('category.index');
+
 
 Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
 
@@ -38,11 +40,11 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     Route::get('products/{product}/types/create', 'Admin\ProductController@types_create')->name('admin.products.types.create');
     Route::post('products/{product}/types/create', 'Admin\ProductController@types_store')->name('admin.products.types.store');
     Route::delete('products/{product}/types/{type}', 'Admin\ProductController@types_delete')->name('admin.products.types.delete');
-    
+
     Route::get('orders/factory', 'Admin\OrderController@factory')->name('admin.orders.factory');
-    Route::get('orders/mail', 'Admin\OrderController@mail')->name('admin.orders.mail');        
+    Route::get('orders/mail', 'Admin\OrderController@mail')->name('admin.orders.mail');
     Route::post('orders/mail', 'Admin\OrderController@mail_send')->name('admin.orders.mail.send');
-    Route::get('orders/packing', 'Admin\OrderController@packing')->name('admin.orders.packing');  
+    Route::get('orders/packing', 'Admin\OrderController@packing')->name('admin.orders.packing');
     Route::resource('orders', 'Admin\OrderController', ['as' => 'admin'])->only(['index', 'show', 'destroy']);
 
     Route::resource('categories', 'Admin\CategoryController', ['as' => 'admin'])->except('show');
