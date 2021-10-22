@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="d-flex align-items-center flex-column my-5">
-    <div class="kanker-container">
+    <div class="categories-container">
         <div class="input-container">
             <form action="{{ route('admin.categories.update', $category) }}" method="POST" style="min-width: 320px;" enctype="multipart/form-data">
 
